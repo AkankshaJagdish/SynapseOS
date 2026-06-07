@@ -1,6 +1,6 @@
 # 🧠 SynapseOS — Enterprise Swarm Intelligence on Microsoft AI
 
-> Transform fragmented organizational signals into collective intelligence.
+> The AI-Native Production Operating System. Transform fragmented organizational signals into collective intelligence.
 
 ---
 
