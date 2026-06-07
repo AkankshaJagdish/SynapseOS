@@ -1,0 +1,182 @@
+openapi: 3.1.0
+info:
+  title: SynapseOS MVP API
+  version: 1.0.0
+  description: API contract for organizational memory and existing-solution discovery.
+paths:
+  /health:
+    get:
+      summary: Check service health
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /api/observations:
+    post:
+      summary: Submit an organizational observation for analysis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObservationSubmission'
+      responses:
+        '202':
+          description: Observation accepted for processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObservationResponse'
+  /api/observations/{id}/analysis:
+    get:
+      summary: Get the analysis for an observation
+      parameters:
+        - $ref: '#/components/parameters/ObservationId'
+      responses:
+        '200':
+          description: Observation analysis
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisResponse'
+  /api/dashboard:
+    get:
+      summary: Get the organizational memory dashboard
+      responses:
+        '200':
+          description: Dashboard summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DashboardResponse'
+components:
+  parameters:
+    ObservationId:
+      name: id
+      in: path
+      required: true
+      description: Observation identifier
+      schema:
+        type: string
+        format: uuid
+        example: 550e8400-e29b-41d4-a716-446655440000
+  schemas:
+    HealthResponse:
+      type: object
+      additionalProperties: false
+      required: [status]
+      properties:
+        status:
+          type: string
+          example: healthy
+    ObservationSubmission:
+      type: object
+      additionalProperties: false
+      required: [text, submitted_by, department]
+      properties:
+        text:
+          type: string
+          example: Customer onboarding requires repeated manual identity checks.
+        submitted_by:
+          type: string
+          example: Jordan Lee
+        department:
+          type: string
+          example: Customer Success
+    ObservationResponse:
+      type: object
+      additionalProperties: false
+      required: [id, status, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 550e8400-e29b-41d4-a716-446655440000
+        status:
+          type: string
+          const: processing
+          example: processing
+        created_at:
+          type: string
+          format: date-time
+          example: '2026-06-07T12:00:00Z'
+    AnalysisResponse:
+      type: object
+      additionalProperties: false
+      required: [observation_id, similar_issues, previous_solutions, overall_confidence_score, agent_trace]
+      properties:
+        observation_id:
+          type: string
+          format: uuid
+          example: 550e8400-e29b-41d4-a716-446655440000
+        similar_issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimilarIssue'
+        previous_solutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PreviousSolution'
+        overall_confidence_score:
+          type: number
+          minimum: 0
+          maximum: 1
+          example: 0.89
+        agent_trace:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentTraceEntry'
+    SimilarIssue:
+      type: object
+      additionalProperties: false
+      required: [id, title, department, confidence, created_at]
+      properties:
+        id: {type: string, format: uuid, example: 9d44a337-f5e9-48f8-99eb-733c6b59e021}
+        title: {type: string, example: Duplicate identity verification during onboarding}
+        department: {type: string, example: Operations}
+        confidence: {type: number, minimum: 0, maximum: 1, example: 0.87}
+        created_at: {type: string, format: date-time, example: '2026-05-01T09:30:00Z'}
+    PreviousSolution:
+      type: object
+      additionalProperties: false
+      required: [id, title, description, owner, reuse_confidence]
+      properties:
+        id: {type: string, format: uuid, example: 07d776b4-9f18-4f49-8154-f06a7d50a537}
+        title: {type: string, example: Shared identity verification service}
+        description: {type: string, example: Reusable service that performs and records identity checks.}
+        owner: {type: string, example: Platform Engineering}
+        reuse_confidence: {type: number, minimum: 0, maximum: 1, example: 0.92}
+    AgentTraceEntry:
+      type: object
+      additionalProperties: false
+      required: [agent_name, status, output_summary]
+      properties:
+        agent_name: {type: string, example: Memory Agent}
+        status: {type: string, example: complete}
+        output_summary: {type: string, example: Found 3 related incidents}
+    DashboardResponse:
+      type: object
+      additionalProperties: false
+      required: [emerging_issues, duplicate_projects, savings_opportunities]
+      properties:
+        emerging_issues:
+          type: array
+          items: {$ref: '#/components/schemas/DashboardItem'}
+          example: []
+        duplicate_projects:
+          type: array
+          items: {$ref: '#/components/schemas/DashboardItem'}
+          example: []
+        savings_opportunities:
+          $ref: '#/components/schemas/SavingsOpportunities'
+    DashboardItem:
+      type: object
+      additionalProperties: true
+      example: {title: Repeated onboarding identity checks}
+    SavingsOpportunities:
+      type: object
+      additionalProperties: true
+      example: {}
