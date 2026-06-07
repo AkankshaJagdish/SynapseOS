@@ -1,130 +1,357 @@
 # SynapseOS
 
-SynapseOS is an executive operations-intelligence demo that connects employee observations to related organizational signals, prior solutions, implementation plans, and measurable savings.
+### The AI-Native Organizational Production System
 
-## Architecture
+**Prevent organizations from solving the same problem twice.**
+
+---
+
+## Table of Contents
+
+* Overview
+* The Problem
+* Why AI-Native Production?
+* Key Features
+* Expected Impact
+* How It Works
+* Microsoft AI Architecture
+* Demo Scenario
+* Architecture Diagram
+* Technology Stack
+* Future Roadmap
+
+---
+
+# Overview
+
+Organizations repeatedly solve problems that have already been solved elsewhere inside the company.
+
+Knowledge becomes trapped inside Teams conversations, meeting notes, project documents, support tickets, and tribal memory. Valuable solutions are forgotten. Teams unknowingly duplicate initiatives. Managers spend time coordinating work rather than directing strategy.
+
+SynapseOS transforms fragmented organizational signals into collective intelligence.
+
+When an employee reports a problem, specialized AI agents automatically search organizational memory, detect duplicate initiatives, discover proven solutions, and generate implementation plans.
+
+Instead of repeatedly reinventing solutions, organizations learn from themselves.
+
+SynapseOS turns AI into the coordination layer of production.
+
+---
+
+# The Problem
+
+Modern organizations face a coordination crisis.
+
+Teams often:
+
+* Rebuild solutions that already exist
+* Launch duplicate initiatives
+* Lose institutional knowledge
+* Repeat mistakes from previous projects
+* Spend excessive time searching for information
+* Struggle to identify emerging patterns across departments
+
+As AI systems become more capable, coordination—not intelligence—becomes the bottleneck.
+
+The future challenge is no longer how to make AI smarter.
+
+The challenge is how to coordinate organizational knowledge at scale.
+
+---
+
+# Why AI-Native Production?
+
+Traditional production systems rely on humans to move information between:
+
+* Meetings
+* Emails
+* Teams chats
+* Project boards
+* Documentation systems
+* Knowledge repositories
+
+This creates delays, duplicated effort, and fragmented decision making.
+
+SynapseOS introduces an AI-native production model.
+
+Instead of employees manually searching for solutions, AI agents continuously:
+
+* Discover organizational signals
+* Connect related observations
+* Detect duplicate initiatives
+* Surface proven solutions
+* Coordinate implementation planning
+
+AI becomes the operating system of production.
+
+---
+
+# Key Features
+
+### 🧠 Organizational Memory
+
+Transforms observations, projects, solutions, and meeting summaries into searchable organizational knowledge.
+
+### 🔍 Duplicate Work Detection
+
+Identifies overlapping initiatives and prevents teams from unknowingly solving the same problem multiple times.
+
+### ♻️ Existing Solution Discovery
+
+Finds previously successful solutions, documentation, and project owners.
+
+### 🤖 Multi-Agent Orchestration
+
+Specialized agents collaborate to analyze observations and coordinate recommendations.
+
+### 📈 Impact Forecasting
+
+Quantifies estimated savings through reuse and avoided duplication.
+
+### 📋 Automated Implementation Planning
+
+Generates stakeholder-aware action plans from proven solutions.
+
+---
+
+# Expected Impact
+
+SynapseOS demonstrates how organizational intelligence can become reusable production infrastructure.
+
+### Example Outcomes
+
+* $51,000 estimated cost avoided
+* 340 hours saved
+* 27 issues deflected before escalation
+* 3 duplicate initiatives prevented
+* 91% solution reuse confidence
+
+By transforming organizational memory into actionable intelligence, SynapseOS reduces coordination overhead and accelerates execution.
+
+---
+
+# How It Works
+
+### Employee Observation
+
+An employee reports:
+
+> "Customer onboarding churn is increasing and support tickets are rising."
+
+↓
+
+### Orchestrator Agent
+
+Classifies the signal and coordinates specialist agents.
+
+↓
+
+### Memory Agent
+
+Searches organizational memory for related observations, projects, and historical outcomes.
+
+↓
+
+### Duplicate Detection Agent
+
+Identifies overlapping initiatives and previously investigated issues.
+
+↓
+
+### Solution Discovery Agent
+
+Finds proven solutions, supporting documentation, and historical owners.
+
+↓
+
+### Action Agent
+
+Generates a stakeholder-aware implementation plan.
+
+↓
+
+### Manager Dashboard
+
+Updates organizational intelligence metrics, savings estimates, and reuse opportunities.
+
+---
+
+# Microsoft AI Architecture
+
+SynapseOS is designed around Microsoft's AI ecosystem and agent-first architecture.
+
+## Azure AI Foundry
+
+Used for:
+
+* Agent definitions
+* Prompt management
+* Model configuration
+* Agent lifecycle management
+
+## Azure AI Agent Service
+
+Hosts specialized production agents:
+
+* Orchestrator Agent
+* Memory Agent
+* Duplicate Detection Agent
+* Solution Discovery Agent
+* Action Agent
+
+## Semantic Kernel
+
+Coordinates multi-agent execution through:
+
+* Workflow planning
+* Agent orchestration
+* Task routing
+* Result synthesis
+
+## Azure AI Search
+
+Provides:
+
+* Organizational memory retrieval
+* Similar issue discovery
+* Historical project search
+* Solution ranking
+
+## Microsoft Graph (Simulated Connector)
+
+Provides organizational context from:
+
+* Teams conversations
+* Meeting summaries
+* Project documentation
+
+## GitHub Copilot
+
+Used to accelerate development and implementation.
+
+---
+
+# Demo Scenario
+
+### Input
+
+Customer Success reports:
+
+> "Enterprise onboarding churn is accelerating and support tickets related to CRM setup continue to increase."
+
+### SynapseOS Response
+
+✅ Similar onboarding signals discovered
+
+✅ Duplicate initiative detected
+
+✅ Historical project identified
+
+✅ Existing solution discovered
+
+✅ Reuse confidence calculated
+
+✅ Implementation plan generated
+
+### Result
+
+Instead of launching another investigation, the organization reuses a proven solution and avoids duplicate work.
+
+---
+
+# Architecture Diagram
+
+Employee Observation
+↓
+Orchestrator Agent
+↓
+
+┌─────────────────────┐
+│   Memory Agent      │
+└─────────────────────┘
+↓
+
+┌─────────────────────┐
+│ Duplicate Detection │
+└─────────────────────┘
+↓
+
+┌─────────────────────┐
+│ Solution Discovery  │
+└─────────────────────┘
+↓
+
+┌─────────────────────┐
+│    Action Agent     │
+└─────────────────────┘
+↓
+
+Implementation Plan
+↓
+
+Manager Dashboard
+
+---
+
+# Technology Stack
 
 ### Frontend
 
-The frontend is a standard client-rendered **Vite + React + TypeScript SPA**. It has no TanStack Start, SSR runtime, Nitro server, Cloudflare adapter, or serverless deployment target.
-
-- `src/main.tsx` mounts React into the static `index.html` entry point.
-- `src/App.tsx` defines client-side routes with React Router.
-- `src/lib/api.ts` is the only frontend network layer and defines types matching the backend response schemas.
-- `src/pages/` contains the executive dashboard, observation submission, and analysis/action-plan experiences.
-- `src/styles.css` contains the responsive Microsoft Fluent-inspired visual system and agent animations.
-
-The browser routes are:
-
-| Browser route | Screen |
-| --- | --- |
-| `/` | Executive operations dashboard |
-| `/observations/new` | Observation submission |
-| `/observations/:id` | Multi-agent analysis and action plan |
+* React
+* TypeScript
+* Lovable
 
 ### Backend
 
-The backend is a mock-backed FastAPI service. It exposes:
+* FastAPI
+* Python
 
-- `GET /api/dashboard`
-- `POST /api/observations`
-- `GET /api/observations/{id}/analysis`
-- `POST /api/observations/{id}/implement`
+### AI Layer
 
-Submitted observations are stored in backend process memory. See `handoff/BACKEND_STATUS.md` for backend details and `handoff/FRONTEND_INTEGRATION.md` for request/response examples.
+* Azure AI Foundry
+* Azure AI Agent Service
+* Semantic Kernel
+* Azure AI Search
 
-## Local development
+### Data Layer
 
-Prerequisites: Node.js 20+ and npm.
+* PostgreSQL
+* Organizational Memory Store
 
-```bash
-npm install
-npm run dev
-```
+### Development
 
-During local development, Vite proxies relative `/api/...` paths to `http://localhost:8000`. To target another backend, create `.env.local`:
+* GitHub Copilot
 
-```bash
-VITE_API_BASE_URL=http://localhost:8000
-```
+---
 
-Start the existing backend separately from `backend/`:
+# Future Roadmap
 
-```bash
-uvicorn app.main:app --reload
-```
+### Phase 1
 
-## Production build
+* Live Microsoft Graph integration
+* Teams bot interface
+* Expanded organizational memory
 
-```bash
-npm run build
-```
+### Phase 2
 
-The build produces a static deployment bundle:
+* Real-time issue detection
+* Automated project coordination
+* Cross-department intelligence sharing
 
-```text
-dist/
-├── index.html
-└── assets/
-```
+### Phase 3
 
-Preview it locally with:
+* Enterprise-scale swarm intelligence
+* Adaptive organizational planning
+* Autonomous execution workflows
 
-```bash
-npm run preview
-```
+---
 
-## Deploying the frontend to Render
+## Vision
 
-The repository includes `render.yaml` for a Render Static Site. The backend can remain deployed as its existing Render Web Service.
+Every day, organizations solve problems that have already been solved somewhere else.
 
-### Blueprint deployment
+SynapseOS gives enterprises collective intelligence.
 
-1. Push the repository to GitHub or GitLab.
-2. In Render, select **New → Blueprint** and connect the repository.
-3. Render reads `render.yaml` and creates the `synapseos-frontend` static site.
-4. Set `VITE_API_BASE_URL` to the backend Render URL, without a trailing slash, for example `https://synapseos-api.onrender.com`.
-5. Deploy.
+Individual employees observe local signals.
 
-### Manual Static Site deployment
-
-Use these settings if not using the Blueprint:
-
-| Setting | Value |
-| --- | --- |
-| Service type | Static Site |
-| Build command | `npm ci && npm run build` |
-| Publish directory | `dist` |
-| Environment variable | `VITE_API_BASE_URL=https://<backend-service>.onrender.com` |
-| Rewrite rule | `/*` → `/index.html` |
-
-The rewrite rule is required because React Router handles routes in the browser. Without it, directly opening `/observations/new` or `/observations/:id` returns a static-host 404.
-
-## Integration and resilience behavior
-
-- All network calls go through `src/lib/api.ts`.
-- Non-2xx backend responses display their `detail` message directly in the UI.
-- Connection failures display an actionable service-availability message.
-- Loading skeletons are controlled by `finally` blocks and disappear on both success and failure.
-- The dashboard always shows the executive story metrics `$51,000`, `340`, `27`, and `1` while the backend is loading or unavailable. These are presentation fallbacks only; lists and analysis results are never mocked in the frontend.
-- The backend must allow the deployed frontend origin through CORS. The current backend permits all origins for the MVP.
-
-## Frontend/backend integration audit
-
-### Mismatches found
-
-1. **No frontend existed in the repository.** There was no TanStack Start, Nitro, Cloudflare target, package manifest, routing configuration, styling, API integration, loading state, or frontend mock data to convert or preserve.
-2. **No API client existed.** The four backend routes had documentation but no browser consumer.
-3. **Dashboard loading would have shown no story metrics.** The requested executive fallback values were absent from any UI.
-4. **Backend numeric schema fields serialize as numbers and may appear with decimals.** The frontend normalizes display with locale formatting and rounding where appropriate.
-5. **The backend implementation endpoint validates the solution but not the observation ID.** The frontend sends the active observation ID as contracted and surfaces any backend error unchanged.
-6. **The backend OpenAPI artifact omits `/health`, while the runtime exposes it.** The frontend does not depend on `/health` for page rendering.
-
-### Integration fixes applied
-
-- Created one typed API client for exactly the four backend routes.
-- Matched frontend request keys and response types to backend Pydantic responses.
-- Added direct display of backend `detail` errors plus connection-error handling.
-- Added deterministic loading completion and retry behavior.
-- Added dashboard story metrics during loading and connection failures without mocking backend lists or analysis data.
-- Added Render SPA rewrites and environment-based backend URL configuration.
+The organization learns as one.
