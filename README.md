@@ -1,6 +1,8 @@
-# 🧠 SynapseOS — Enterprise Swarm Intelligence on Microsoft AI
+# 🧠 SynapseOS — Enterprise Swarm OS on Microsoft AI
 
 > The AI-Native Production Operating System. Transform fragmented organizational signals into collective intelligence.
+
+> Biologist Thomas Seeley (Author of Honeybee Democracy): "A bee colony has an overall intelligence that is obvious to a beekeeper that pays close attention. This intelligence is more than just the sum of the individual bees; it is intrinsic to the colony as a whole."
 
 ---
 
