@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: synapseos-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: DEMO_MODE
+        value: "true"
+      - key: SYNAPSE_DATABASE_PATH
+        value: /var/data/synapse.db
+      - key: FRONTEND_ORIGIN
+        value: https://synapseos.vercel.app
+    disk:
+      name: synapseos-data
+      mountPath: /var/data
+      sizeGB: 1
