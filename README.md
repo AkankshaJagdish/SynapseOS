@@ -264,38 +264,10 @@ Collective intelligence becomes a competitive advantage.
 
 # 🖼️ Architecture Diagram
 
-Employee Observation
-↓
+**High-Level Architecture Diagram**
 
-Orchestrator Agent
-↓
+<img width="3998" height="3274" alt="architecture_diagram" src="https://github.com/user-attachments/assets/81b4532b-82c1-4103-b113-1c1501de0a59" />
 
-┌────────────────────┐
-│   Memory Agent     │
-└────────────────────┘
-↓
-
-┌────────────────────┐
-│ Pattern Detection  │
-│      Agent         │
-└────────────────────┘
-↓
-
-┌────────────────────┐
-│ Solution Discovery │
-│      Agent         │
-└────────────────────┘
-↓
-
-┌────────────────────┐
-│    Action Agent    │
-└────────────────────┘
-↓
-
-Organizational Intelligence
-↓
-
-Manager Dashboard
 
 ---
 
