@@ -15,7 +15,7 @@
 * [🧱 Microsoft AI Architecture](#-microsoft-ai-architecture)
 * [🚀 Demo Scenario](#-demo-scenario)
 * [🖼️ Architecture Diagram](#️-architecture-diagram)
-* [💻 Technology Stack](#-technology-stack)
+* [💻 Demo Technology Stack](#-demo-technology-stack)
 * [🛣️ Future Roadmap](#️-future-roadmap)
 
 ---
@@ -24,31 +24,31 @@
 
 Modern organizations generate enormous amounts of intelligence every day.
 
-Employees identify risks.
+* Employees identify risks.
 
-Teams discover solutions.
+* Teams discover solutions.
 
-Projects generate lessons.
+* Projects generate lessons.
 
-Customers reveal patterns.
+* Customers reveal patterns.
 
 Yet most of this intelligence disappears.
 
 It remains trapped inside meetings, documents, Teams conversations, tickets, dashboards, and individual experience.
 
-As organizations grow, knowledge becomes fragmented. Teams unknowingly repeat work that has already been done. Similar problems emerge in multiple departments without being connected. Valuable solutions remain isolated inside local teams.
+**As organizations grow, knowledge becomes fragmented. Teams unknowingly repeat work that has already been done. Similar problems emerge in multiple departments without being connected. Valuable solutions remain isolated inside local teams.**
 
 SynapseOS transforms organizations from collections of disconnected individuals into coordinated intelligence networks.
 
 Inspired by swarm intelligence in nature, SynapseOS enables organizations to learn collectively.
 
-Individual employees observe local signals.
+**Individual employees observe local signals.**
 
-The organization develops global awareness.
+**The organization develops global awareness.**
 
 Instead of acting as another chatbot or knowledge base, SynapseOS functions as an organizational intelligence layer that continuously connects observations, identifies patterns, discovers existing solutions, and coordinates action through specialized AI agents.
 
-The result is a self-learning enterprise that becomes smarter every time work is performed.
+**The result is a self-learning enterprise that becomes smarter every time work is performed.**
 
 ---
 
@@ -67,11 +67,11 @@ Common examples include:
 
 As AI becomes more capable, intelligence is no longer the primary constraint.
 
-Coordination becomes the bottleneck.
+**Coordination becomes the bottleneck.**
 
 The organizations that win in the AI era will not be those with the smartest individual employees.
 
-They will be those that learn collectively.
+T**hey will be those that learn collectively.**
 
 ---
 
@@ -87,17 +87,11 @@ Collectively, employees generate enormous organizational intelligence.
 
 Today's enterprises lack mechanisms to coordinate that intelligence effectively.
 
-SynapseOS creates an organizational swarm intelligence system.
+<mark>SynapseOS creates an organizational swarm intelligence system.</mark>
 
-Every observation becomes a signal.
+Every observation becomes a signal. Every project becomes a learning event. Every solution becomes reusable organizational memory.
 
-Every project becomes a learning event.
-
-Every solution becomes reusable organizational memory.
-
-Every employee contributes to a continuously evolving intelligence network.
-
-Instead of knowledge remaining local, intelligence becomes organizational.
+Every employee contributes to a continuously evolving intelligence network. Instead of knowledge remaining local, intelligence becomes organizational.
 
 ---
 
@@ -191,14 +185,14 @@ The organization learns from itself.
 
 SynapseOS is designed around Microsoft's agent-first AI ecosystem.
 
-### Azure AI Foundry
+### <img height="25" alt="image" src="https://github.com/user-attachments/assets/946166e5-10da-40b9-8680-7be9de5dbd02" /> Azure AI Foundry  
 
 * Agent definitions
 * Prompt management
 * Model configuration
 * Agent lifecycle management
 
-### Azure AI Agent Service
+### <img height="25" alt="image" src="https://github.com/user-attachments/assets/946166e5-10da-40b9-8680-7be9de5dbd02" /> AI Foundry Agent Service
 
 Hosts specialized swarm intelligence agents:
 
@@ -208,7 +202,7 @@ Hosts specialized swarm intelligence agents:
 * Solution Discovery Agent
 * Action Agent
 
-### Semantic Kernel
+### <img height="25" alt="image" src="https://github.com/user-attachments/assets/acb0184b-13ae-4b61-9bbe-7f40434c3e3f" /> Semantic Kernel
 
 Coordinates agent collaboration through:
 
@@ -217,7 +211,7 @@ Coordinates agent collaboration through:
 * Task routing
 * Result synthesis
 
-### Azure AI Search
+### <img height="25" alt="image" src="https://github.com/user-attachments/assets/52c8d281-492b-4f86-80e6-215e03c63e29" /> Azure AI Search
 
 Provides retrieval across organizational memory:
 
@@ -226,7 +220,7 @@ Provides retrieval across organizational memory:
 * Solutions
 * Documentation
 
-### Microsoft Graph (Simulated Connector)
+### <img height="25" alt="image" src="https://github.com/user-attachments/assets/1cee7a3d-3338-45b2-a773-4a1f202621d7" /> Microsoft Graph (Simulated Connector)
 
 Provides organizational context from:
 
@@ -234,7 +228,7 @@ Provides organizational context from:
 * Meeting summaries
 * Project documentation
 
-### GitHub Copilot
+### <img height="25" alt="image" src="https://github.com/user-attachments/assets/a6b845d0-d117-4ea9-ad60-a724988a609f" /> GitHub Copilot
 
 Used to accelerate development and implementation.
 
@@ -303,7 +297,7 @@ Manager Dashboard
 
 ---
 
-# 💻 Technology Stack
+# 💻 Demo Technology Stack
 
 ### Frontend
 
@@ -318,10 +312,10 @@ Manager Dashboard
 
 ### AI Layer
 
-* Azure AI Foundry
-* Azure AI Agent Service
-* Semantic Kernel
-* Azure AI Search
+* <img height="25" alt="image" src="https://github.com/user-attachments/assets/946166e5-10da-40b9-8680-7be9de5dbd02" /> Azure AI Foundry
+* <img height="25" alt="image" src="https://github.com/user-attachments/assets/946166e5-10da-40b9-8680-7be9de5dbd02" /> Azure AI Agent Service
+* <img height="25" alt="image" src="https://github.com/user-attachments/assets/acb0184b-13ae-4b61-9bbe-7f40434c3e3f" /> Semantic Kernel
+* <img height="25" alt="image" src="https://github.com/user-attachments/assets/52c8d281-492b-4f86-80e6-215e03c63e29" /> Azure AI Search
 
 ### Data Layer
 
