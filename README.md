@@ -266,7 +266,7 @@ Collective intelligence becomes a competitive advantage.
 
 **High-Level Architecture Diagram**
 
-<img width="3998" height="3274" alt="architecture_diagram" src="https://github.com/user-attachments/assets/81b4532b-82c1-4103-b113-1c1501de0a59" />
+<img width="4676" height="4962" alt="SynapseOSArchitecture drawio (1)" src="https://github.com/user-attachments/assets/57dbe47c-aa8f-424b-9656-bd1ef5c9a6da" />
 
 
 ---
