@@ -1,0 +1,127 @@
+{
+  "observations": [
+    {
+      "id": "7b6950d4-f518-4a20-8dcf-29e3ca816fd9",
+      "text": "Enterprise customers are abandoning onboarding when the Salesforce connection requires administrator approval. Customer Success recorded eleven at-risk accounts this month after setup stalled for more than five days.",
+      "submitted_by": "Maya Chen",
+      "department": "Customer Success",
+      "status": "complete",
+      "created_at": "2026-05-12T14:30:00Z"
+    },
+    {
+      "id": "ce3a828a-9277-4c39-a2f8-917c63f513ea",
+      "text": "Support tickets tagged onboarding-blocker increased 38 percent after the April release. Most tickets ask how to map Salesforce fields or recover an expired integration token.",
+      "submitted_by": "Darius Cole",
+      "department": "Support Operations",
+      "status": "complete",
+      "created_at": "2026-05-19T10:05:00Z"
+    },
+    {
+      "id": "43be944a-53bd-4a46-a2b4-fc6be205253a",
+      "text": "New-customer NPS fell from 41 to 24 among accounts that did not complete CRM setup in their first week. Interview notes repeatedly mention unclear ownership and too many handoffs between Sales Engineering and Customer Success.",
+      "submitted_by": "Elena Torres",
+      "department": "Customer Insights",
+      "status": "complete",
+      "created_at": "2026-05-27T16:45:00Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": "42e194b9-fc33-44b1-b9c7-dd7b4cafad88",
+      "title": "Project Phoenix: Onboarding Redesign Q2 2023",
+      "department": "Customer Success",
+      "description": "Redesigned enterprise kickoff milestones and introduced a shared Salesforce implementation checklist for the first 30 days.",
+      "owner": "Priya Raman",
+      "created_at": "2023-04-03T09:00:00Z"
+    },
+    {
+      "id": "02c81aaa-62d2-443a-9cad-7add63b36bfd",
+      "title": "First-Week Activation Sprint Q4 2024",
+      "department": "Growth Operations",
+      "description": "Tested triggered education and specialist office hours for customers that missed critical setup milestones.",
+      "owner": "Marcus Webb",
+      "created_at": "2024-10-07T13:00:00Z"
+    }
+  ],
+  "solutions": [
+    {
+      "id": "3af74bd9-906f-44d9-a422-4023f73d30c9",
+      "title": "Guided CRM Setup Recovery Playbook",
+      "description": "Use Salesforce milestone data to trigger an Intercom walkthrough after 48 hours of inactivity, then create a Jira escalation for accounts still blocked after five days. Project Phoenix reduced setup-related churn by 19 percent with this sequence.",
+      "owner": "Priya Raman",
+      "related_project_id": "42e194b9-fc33-44b1-b9c7-dd7b4cafad88",
+      "created_at": "2023-06-23T15:00:00Z",
+      "reuse_confidence": 0.91
+    },
+    {
+      "id": "f6c3c91e-e254-4619-81fd-e91bf8018dc6",
+      "title": "Onboarding Specialist Office Hours",
+      "description": "Invite stalled accounts to twice-weekly specialist sessions through Intercom and record outcomes in Salesforce. The pilot improved activation for attendees but reached only 31 percent of eligible accounts.",
+      "owner": "Marcus Webb",
+      "related_project_id": "02c81aaa-62d2-443a-9cad-7add63b36bfd",
+      "created_at": "2024-12-13T18:00:00Z",
+      "reuse_confidence": 0.62
+    }
+  ],
+  "similar_issues": [
+    {
+      "id": "7b6950d4-f518-4a20-8dcf-29e3ca816fd9",
+      "title": "Enterprise onboarding stalls at Salesforce administrator approval",
+      "department": "Customer Success",
+      "confidence": 0.95,
+      "created_at": "2026-05-12T14:30:00Z"
+    },
+    {
+      "id": "ce3a828a-9277-4c39-a2f8-917c63f513ea",
+      "title": "Onboarding-blocker support tickets spike after April release",
+      "department": "Support Operations",
+      "confidence": 0.87,
+      "created_at": "2026-05-19T10:05:00Z"
+    },
+    {
+      "id": "43be944a-53bd-4a46-a2b4-fc6be205253a",
+      "title": "New-customer NPS drops when CRM setup misses first-week target",
+      "department": "Customer Insights",
+      "confidence": 0.78,
+      "created_at": "2026-05-27T16:45:00Z"
+    }
+  ],
+  "agent_trace": [
+    {"agent_name": "Orchestrator", "status": "complete", "output_summary": "Classified the observation as a cross-functional onboarding retention risk and coordinated four specialist agents."},
+    {"agent_name": "Memory", "status": "complete", "output_summary": "Retrieved Project Phoenix and the First-Week Activation Sprint from Acme Corp's project memory."},
+    {"agent_name": "DuplicateDetection", "status": "complete", "output_summary": "Linked three recent signals to the same Salesforce setup bottleneck with 0.88 overall confidence."},
+    {"agent_name": "SolutionDiscovery", "status": "complete", "output_summary": "Ranked the Guided CRM Setup Recovery Playbook first because it previously reduced setup-related churn by 19 percent."},
+    {"agent_name": "Action", "status": "complete", "output_summary": "Prepared a two-week relaunch plan spanning Customer Success, Support Operations, and RevOps."}
+  ],
+  "dashboard": {
+    "emerging_issues": [
+      {
+        "id": "issue-onboarding-churn",
+        "title": "Enterprise onboarding churn is accelerating",
+        "report_count": 18,
+        "departments": ["Customer Success", "Support Operations", "Customer Insights"],
+        "trend": "rising"
+      },
+      {
+        "id": "issue-crm-token-expiry",
+        "title": "Expired CRM integration tokens are driving repeat tickets",
+        "report_count": 9,
+        "departments": ["Support Operations", "Product Engineering"],
+        "trend": "stable"
+      }
+    ],
+    "duplicate_projects": [
+      {
+        "id": "dup-guided-onboarding",
+        "title": "Overlapping guided onboarding initiatives",
+        "duplicate_count": 3,
+        "estimated_savings_hours": 120
+      }
+    ],
+    "savings_opportunities": {
+      "total_issues_deflected": 27,
+      "total_hours_saved": 340,
+      "total_cost_saved_usd": 51000
+    }
+  }
+}

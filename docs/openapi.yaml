@@ -1,0 +1,183 @@
+openapi: 3.1.0
+info:
+  title: SynapseOS API
+  version: 1.0.0
+  description: Contract-first API for the SynapseOS MVP.
+paths:
+  /api/observations:
+    post:
+      summary: Submit an organizational observation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/ObservationCreate'}
+      responses:
+        '201':
+          description: Observation accepted for processing
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/ObservationCreatedResponse'}
+        '422':
+          description: Invalid observation
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/ErrorResponse'}
+  /api/observations/{id}/analysis:
+    get:
+      summary: Get the analysis for an observation
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: {type: string, format: uuid, example: 7b6950d4-f518-4a20-8dcf-29e3ca816fd9}
+      responses:
+        '200':
+          description: Completed observation analysis
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/AnalysisResponse'}
+        '404':
+          description: Observation not found
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/ErrorResponse'}
+  /api/observations/{id}/implement:
+    post:
+      summary: Generate an implementation plan
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: {type: string, format: uuid, example: 7b6950d4-f518-4a20-8dcf-29e3ca816fd9}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/ImplementRequest'}
+      responses:
+        '200':
+          description: Generated implementation plan
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/ImplementResponse'}
+        '404':
+          description: Observation or solution not found
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/ErrorResponse'}
+  /api/dashboard:
+    get:
+      summary: Get dashboard insights and savings
+      responses:
+        '200':
+          description: Current SynapseOS dashboard
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/DashboardResponse'}
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      required: [detail]
+      properties:
+        detail: {type: string, example: Observation not found}
+    ObservationCreate:
+      type: object
+      required: [text, submitted_by]
+      properties:
+        text: {type: string, minLength: 10, example: New customers are abandoning onboarding before connecting Salesforce.}
+        submitted_by: {type: string, example: Maya Chen}
+        department: {type: string, example: Customer Success}
+    ObservationCreatedResponse:
+      type: object
+      required: [id, status, created_at]
+      properties:
+        id: {type: string, format: uuid, example: 7b6950d4-f518-4a20-8dcf-29e3ca816fd9}
+        status: {type: string, enum: [processing], example: processing}
+        created_at: {type: string, format: date-time, example: '2026-06-07T09:15:00Z'}
+    SimilarIssue:
+      type: object
+      required: [id, title, department, confidence, created_at]
+      properties:
+        id: {type: string, example: obs-onboarding-churn}
+        title: {type: string, example: Onboarding abandonment after CRM connection step}
+        department: {type: string, example: Customer Success}
+        confidence: {type: number, minimum: 0.0, maximum: 1.0, example: 0.93}
+        created_at: {type: string, example: '2026-05-12T14:30:00Z'}
+    PreviousSolution:
+      type: object
+      required: [id, title, description, owner, reuse_confidence]
+      properties:
+        id: {type: string, example: sol-guided-setup}
+        title: {type: string, example: Guided CRM setup recovery playbook}
+        description: {type: string, example: Trigger Intercom guidance when Salesforce setup stalls.}
+        owner: {type: string, example: Priya Raman}
+        reuse_confidence: {type: number, minimum: 0.0, maximum: 1.0, example: 0.91}
+    AgentTrace:
+      type: object
+      required: [agent_name, status, output_summary]
+      properties:
+        agent_name: {type: string, example: DuplicateDetection}
+        status: {type: string, enum: [pending, running, complete, error], example: complete}
+        output_summary: {type: string, example: Matched three onboarding signals across Customer Success and Support.}
+    AnalysisResponse:
+      type: object
+      required: [observation_id, similar_issues, previous_solutions, overall_confidence_score, agent_trace]
+      properties:
+        observation_id: {type: string, example: 7b6950d4-f518-4a20-8dcf-29e3ca816fd9}
+        similar_issues: {type: array, items: {$ref: '#/components/schemas/SimilarIssue'}}
+        previous_solutions: {type: array, items: {$ref: '#/components/schemas/PreviousSolution'}}
+        overall_confidence_score: {type: number, minimum: 0.0, maximum: 1.0, example: 0.88}
+        agent_trace: {type: array, items: {$ref: '#/components/schemas/AgentTrace'}}
+    ImplementRequest:
+      type: object
+      required: [chosen_solution_id]
+      properties:
+        chosen_solution_id: {type: string, example: sol-guided-setup}
+    Action:
+      type: object
+      required: [step, description, owner, due_days]
+      properties:
+        step: {type: number, example: 1}
+        description: {type: string, example: Configure the stalled-setup Intercom audience.}
+        owner: {type: string, example: Lifecycle Operations}
+        due_days: {type: number, example: 5}
+    ImplementResponse:
+      type: object
+      required: [implementation_plan, actions, stakeholders]
+      properties:
+        implementation_plan: {type: string, example: Relaunch guided setup recovery for stalled enterprise trials.}
+        actions: {type: array, items: {$ref: '#/components/schemas/Action'}}
+        stakeholders: {type: array, items: {type: string}, example: [Customer Success, Support Operations, RevOps]}
+    EmergingIssue:
+      type: object
+      required: [id, title, report_count, departments, trend]
+      properties:
+        id: {type: string, example: issue-onboarding-churn}
+        title: {type: string, example: Enterprise onboarding churn is accelerating}
+        report_count: {type: number, example: 18}
+        departments: {type: array, items: {type: string}, example: [Customer Success, Support]}
+        trend: {type: string, enum: [rising, stable, resolved], example: rising}
+    DuplicateProject:
+      type: object
+      required: [id, title, duplicate_count, estimated_savings_hours]
+      properties:
+        id: {type: string, example: dup-guided-onboarding}
+        title: {type: string, example: Overlapping guided onboarding initiatives}
+        duplicate_count: {type: number, example: 3}
+        estimated_savings_hours: {type: number, example: 120}
+    SavingsOpportunities:
+      type: object
+      required: [total_issues_deflected, total_hours_saved, total_cost_saved_usd]
+      properties:
+        total_issues_deflected: {type: number, example: 27}
+        total_hours_saved: {type: number, example: 340}
+        total_cost_saved_usd: {type: number, example: 51000}
+    DashboardResponse:
+      type: object
+      required: [emerging_issues, duplicate_projects, savings_opportunities]
+      properties:
+        emerging_issues: {type: array, items: {$ref: '#/components/schemas/EmergingIssue'}}
+        duplicate_projects: {type: array, items: {$ref: '#/components/schemas/DuplicateProject'}}
+        savings_opportunities: {$ref: '#/components/schemas/SavingsOpportunities'}
